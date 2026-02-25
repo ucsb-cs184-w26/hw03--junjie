@@ -1,0 +1,148 @@
+import 'package:flutter/material.dart';
+
+const Color kPageBackground = Color(0xFFE7E8E2);
+const Color kPanelBackground = Color(0xFFE1E2DB);
+const Color kAccentPurple = Color(0xFF5B4BB2);
+const Color kWallColor = Color(0xFFB56A61);
+const Color kDoorColor = Color(0xFFC78B83);
+
+const String kPlacementWarningText =
+    'invalid placement: avoid walls, doorways, and existing furniture';
+
+const List<String> kTagOrder = [
+  'Living',
+  'Kitchen',
+  'Bedroom',
+  'Bathroom',
+  'Dining',
+  'Office',
+];
+
+const String kDefaultPlanJson = '''
+{
+  "floorPlan": {
+    "@attributes": {
+      "width": "20",
+      "height": "14"
+    },
+    "rooms": {
+      "room": [
+        {
+          "@attributes": {
+            "id": "living_room",
+            "type": "living"
+          },
+          "name": "Living Room",
+          "position": {
+            "@attributes": {
+              "x": "0",
+              "y": "0",
+              "width": "12",
+              "height": "7"
+            }
+          },
+          "adjacentTo": [
+            "kitchen",
+            "bedroom_1",
+            "bedroom_2"
+          ]
+        },
+        {
+          "@attributes": {
+            "id": "kitchen",
+            "type": "kitchen"
+          },
+          "name": "Kitchen",
+          "position": {
+            "@attributes": {
+              "x": "12",
+              "y": "0",
+              "width": "8",
+              "height": "4"
+            }
+          },
+          "adjacentTo": [
+            "living_room",
+            "bedroom_1"
+          ]
+        },
+        {
+          "@attributes": {
+            "id": "bedroom_1",
+            "type": "bedroom"
+          },
+          "name": "BR1",
+          "position": {
+            "@attributes": {
+              "x": "12",
+              "y": "4",
+              "width": "8",
+              "height": "5"
+            }
+          },
+          "adjacentTo": [
+            "living_room",
+            "kitchen",
+            "bathroom_1",
+            "bathroom_2"
+          ]
+        },
+        {
+          "@attributes": {
+            "id": "bathroom_1",
+            "type": "bathroom"
+          },
+          "name": "Bath1",
+          "position": {
+            "@attributes": {
+              "x": "17",
+              "y": "4",
+              "width": "3",
+              "height": "5"
+            }
+          },
+          "adjacentTo": "bedroom_1"
+        },
+        {
+          "@attributes": {
+            "id": "bedroom_2",
+            "type": "bedroom"
+          },
+          "name": "BR2",
+          "position": {
+            "@attributes": {
+              "x": "0",
+              "y": "7",
+              "width": "12",
+              "height": "7"
+            }
+          },
+          "adjacentTo": [
+            "living_room",
+            "bathroom_2"
+          ]
+        },
+        {
+          "@attributes": {
+            "id": "bathroom_2",
+            "type": "bathroom"
+          },
+          "name": "Bath2",
+          "position": {
+            "@attributes": {
+              "x": "12",
+              "y": "9",
+              "width": "8",
+              "height": "5"
+            }
+          },
+          "adjacentTo": [
+            "bedroom_1",
+            "bedroom_2"
+          ]
+        }
+      ]
+    }
+  }
+}
+''';
